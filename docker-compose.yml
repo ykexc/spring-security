@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  spring:
+    container_name: se_sb
+    build: .
+    ports:
+      - "8085:8085"
+    restart: always
+  mysql:
+    container_name: se_mysql
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: '123456.root'
+      MYSQL_DATABASE: 'sty'
+      TZ: 'Asia/Shanghai'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d
+  redis:
+    container_name: se_redis
+    image: redis:latest
+    ports:
+      - "6379:6379"
+

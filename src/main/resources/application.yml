@@ -1,0 +1,18 @@
+server:
+  port: 8085
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://se_mysql:3306/sty
+    username: root
+    password: 123456.root
+  data:
+    redis:
+      host: se_redis
+      database: 0
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: 100
